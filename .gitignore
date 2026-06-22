@@ -1,0 +1,92 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+# Python / FastAPI
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.egg-info/
+.eggs/
+build/
+dist/
+*.db
+*.sqlite
+*.sqlite3
+
+# Node / Next.js / Playwright
+node_modules/
+.next/
+out/
+.turbo/
+.vercel/
+coverage/
+playwright-report/
+test-results/
+blob-report/
+*.tsbuildinfo
+pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker and local volumes
+docker-data/
+postgres-data/
+redis-data/
+*.pid
+
+# Editors
+.vscode/
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+
+# Operating systems
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Local tooling and generated working files
+.codex/
+.agents/
+.orbitops-git/
+work/
+outputs/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.log
+
+# Keep committed portfolio media
+!docs/assets/**/*.png
+!docs/assets/**/*.gif
+!docs/assets/**/*.svg
