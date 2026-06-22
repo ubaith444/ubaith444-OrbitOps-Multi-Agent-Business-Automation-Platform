@@ -1,0 +1,46 @@
+{
+  "name": "OrbitOps - Signed Lead Intake",
+  "nodes": [
+    {
+      "parameters": {"httpMethod": "POST", "path": "orbitops-lead-intake", "responseMode": "responseNode"},
+      "id": "webhook",
+      "name": "CRM Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {"jsCode": "const h = $json.headers || {}; if (!h['x-orbitops-signature']) throw new Error('Missing webhook signature'); return [{json: {name: $json.body.name, company: $json.body.company, industry: $json.body.industry, website: $json.body.website, email: $json.body.email, phone: $json.body.phone, source: 'crm', attributes: {external_id: $json.body.id}}}];"},
+      "id": "normalize",
+      "name": "Validate and Normalize",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {"method": "POST", "url": "={{$env.ORBITOPS_API_URL}}/leads", "sendHeaders": true, "headerParameters": {"parameters": [{"name": "Authorization", "value": "=Bearer {{$env.ORBITOPS_SERVICE_TOKEN}}"}, {"name": "Idempotency-Key", "value": "={{$json.attributes.external_id}}"}]}, "sendBody": true, "contentType": "raw", "rawContentType": "application/json", "body": "={{JSON.stringify($json)}}"},
+      "id": "create-lead",
+      "name": "Create OrbitOps Lead",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {"respondWith": "json", "responseBody": "={{ {accepted: true, lead_id: $json.id} }}", "options": {"responseCode": 202}},
+      "id": "response",
+      "name": "Accepted",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [1000, 300]
+    }
+  ],
+  "connections": {
+    "CRM Webhook": {"main": [[{"node": "Validate and Normalize", "type": "main", "index": 0}]]},
+    "Validate and Normalize": {"main": [[{"node": "Create OrbitOps Lead", "type": "main", "index": 0}]]},
+    "Create OrbitOps Lead": {"main": [[{"node": "Accepted", "type": "main", "index": 0}]]}
+  },
+  "settings": {"executionOrder": "v1", "saveDataErrorExecution": "all", "saveDataSuccessExecution": "none"},
+  "active": false,
+  "versionId": "4a8d50f8-6725-4b84-b688-21ea378022f3"
+}
+
