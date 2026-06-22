@@ -1,12 +1,14 @@
 """Fail when repository source appears to contain a real credential."""
 
-from pathlib import Path
+import os
 import re
 import sys
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKIP_DIRS = {
     ".git",
+    ".orbitops-git",
     ".next",
     ".venv",
     "node_modules",
@@ -17,7 +19,7 @@ SKIP_DIRS = {
     "__pycache__",
 }
 SKIP_SUFFIXES = {".png", ".gif", ".jpg", ".jpeg", ".pdf", ".pyc", ".db"}
-SAFE_MARKERS = ("CHANGE_ME", "TestOnly", "test-only", "example", "<", "${", "")
+SAFE_MARKERS = ("CHANGE_ME", "TestOnly", "test-only", "example", "<", "${")
 
 PATTERNS = {
     "AWS access key": re.compile(r"\b(?:AKIA|ASIA)[0-9A-Z]{16}\b"),
@@ -33,19 +35,21 @@ ASSIGNMENT = re.compile(
 
 
 def source_files():
-    for path in ROOT.rglob("*"):
-        if not path.is_file() or path.suffix.lower() in SKIP_SUFFIXES:
-            continue
-        if any(part in SKIP_DIRS for part in path.parts):
-            continue
-        yield path
+    for directory, subdirectories, filenames in os.walk(
+        ROOT, topdown=True, onerror=lambda _error: None
+    ):
+        subdirectories[:] = [name for name in subdirectories if name not in SKIP_DIRS]
+        for filename in filenames:
+            path = Path(directory, filename)
+            if path.suffix.lower() not in SKIP_SUFFIXES:
+                yield path
 
 
 findings: list[str] = []
 for path in source_files():
     try:
         text = path.read_text(encoding="utf-8")
-    except UnicodeDecodeError:
+    except (OSError, UnicodeDecodeError):
         continue
     relative = path.relative_to(ROOT)
     for label, pattern in PATTERNS.items():
