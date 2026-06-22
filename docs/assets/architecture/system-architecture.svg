@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">OrbitOps system architecture</title>
+  <desc id="desc">Enterprise AI operations platform architecture showing the web console, API control plane, LangGraph runtime, model routing, durable data, providers, and observability.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#070c15"/><stop offset="1" stop-color="#0d1726"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000" flood-opacity=".28"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#56708f"/></marker>
+    <style>
+      .title{font:700 34px Inter,Segoe UI,sans-serif;fill:#f8fafc}.subtitle{font:400 16px Inter,Segoe UI,sans-serif;fill:#8ea0b8}.section{font:700 12px Inter,Segoe UI,sans-serif;letter-spacing:2px;fill:#60a5fa}.box{fill:#101a29;stroke:#253449;stroke-width:1.5}.box2{fill:#0d1623;stroke:#253449;stroke-width:1.5}.name{font:700 17px Inter,Segoe UI,sans-serif;fill:#f1f5f9}.meta{font:400 12px Inter,Segoe UI,sans-serif;fill:#8291a7}.line{fill:none;stroke:#56708f;stroke-width:2;marker-end:url(#arrow)}.pill{font:600 11px Inter,Segoe UI,sans-serif;fill:#93c5fd}.small{font:600 12px Inter,Segoe UI,sans-serif;fill:#cbd5e1}
+    </style>
+  </defs>
+  <rect width="1600" height="900" rx="28" fill="url(#bg)"/>
+  <circle cx="1440" cy="-20" r="360" fill="#2563eb" opacity=".08"/><circle cx="80" cy="850" r="280" fill="#7c3aed" opacity=".06"/>
+  <g transform="translate(72 58)"><rect width="46" height="46" rx="13" fill="url(#brand)"/><path d="M23 10l3.3 8.3L35 22l-8.7 3.7L23 34l-3.3-8.3L11 22l8.7-3.7z" fill="#fff"/><text x="62" y="29" class="title">OrbitOps Architecture</text><text x="62" y="54" class="subtitle">Approval-first multi-agent business automation platform</text></g>
+
+  <text x="78" y="176" class="section">EXPERIENCE</text>
+  <g filter="url(#shadow)"><rect x="78" y="198" width="260" height="110" rx="16" class="box"/><circle cx="116" cy="235" r="19" fill="#2563eb" opacity=".18"/><path d="M108 235h16M116 227v16" stroke="#60a5fa" stroke-width="2"/><text x="148" y="236" class="name">Operations teams</text><text x="103" y="273" class="meta">Sales · Managers · AI admins</text></g>
+  <g filter="url(#shadow)"><rect x="78" y="345" width="260" height="122" rx="16" class="box"/><rect x="103" y="372" width="48" height="48" rx="12" fill="#3b82f6" opacity=".18"/><path d="M113 385h28v20h-28zM113 391h28" fill="none" stroke="#60a5fa" stroke-width="2"/><text x="168" y="388" class="name">Next.js console</text><text x="168" y="410" class="meta">Responsive SaaS UI</text><text x="103" y="446" class="pill">HTTP-only session · RBAC-aware</text></g>
+
+  <text x="420" y="176" class="section">CONTROL PLANE</text>
+  <g filter="url(#shadow)"><rect x="420" y="198" width="320" height="122" rx="16" class="box"/><rect x="446" y="226" width="50" height="50" rx="13" fill="#06b6d4" opacity=".15"/><path d="M459 240h24M459 248h24M459 256h16" stroke="#22d3ee" stroke-width="2"/><text x="514" y="242" class="name">FastAPI</text><text x="514" y="265" class="meta">JWT · tenant scope · validation</text><text x="446" y="300" class="pill">Audit · OpenAPI · Prometheus</text></g>
+  <g filter="url(#shadow)"><rect x="420" y="358" width="320" height="122" rx="16" class="box"/><rect x="446" y="386" width="50" height="50" rx="13" fill="#8b5cf6" opacity=".16"/><path d="M458 399h10l7 8 10-8M475 407v17" fill="none" stroke="#a78bfa" stroke-width="2"/><text x="514" y="402" class="name">LangGraph runtime</text><text x="514" y="425" class="meta">Resumable state · retries · gates</text><text x="446" y="460" class="pill">Sales → Research → Email → Report</text></g>
+  <g filter="url(#shadow)"><rect x="420" y="518" width="320" height="122" rx="16" class="box"/><rect x="446" y="546" width="50" height="50" rx="13" fill="#f59e0b" opacity=".14"/><path d="M458 560h26M458 568h18M458 576h22" stroke="#fbbf24" stroke-width="2"/><text x="514" y="562" class="name">Model router</text><text x="514" y="585" class="meta">Prompt versions · fallback · cost</text><text x="446" y="620" class="pill">OpenAI · Claude · Gemini · Mock</text></g>
+
+  <text x="835" y="176" class="section">DURABLE STATE</text>
+  <g filter="url(#shadow)"><rect x="835" y="198" width="300" height="122" rx="16" class="box2"/><ellipse cx="882" cy="238" rx="25" ry="10" fill="#10b981" opacity=".22" stroke="#34d399"/><path d="M857 238v31c0 6 11 11 25 11s25-5 25-11v-31" fill="none" stroke="#34d399" stroke-width="2"/><text x="930" y="242" class="name">PostgreSQL</text><text x="930" y="265" class="meta">System of record</text><text x="861" y="300" class="pill">Tenant data · approvals · audit</text></g>
+  <g filter="url(#shadow)"><rect x="835" y="358" width="300" height="122" rx="16" class="box2"/><rect x="858" y="386" width="50" height="50" rx="25" fill="#ef4444" opacity=".14"/><path d="M868 402h30M868 410h30M868 418h30" stroke="#fb7185" stroke-width="2"/><text x="930" y="402" class="name">Redis</text><text x="930" y="425" class="meta">TTL cache · retry state</text><text x="861" y="460" class="pill">Never authoritative</text></g>
+  <g filter="url(#shadow)"><rect x="835" y="518" width="300" height="122" rx="16" class="box2"/><rect x="859" y="548" width="48" height="44" rx="10" fill="#0ea5e9" opacity=".15"/><path d="M868 557h30v26h-30zM868 565h30" fill="none" stroke="#38bdf8" stroke-width="2"/><text x="930" y="562" class="name">Report service</text><text x="930" y="585" class="meta">PDF + metadata</text><text x="861" y="620" class="pill">S3-ready artifact boundary</text></g>
+
+  <text x="1228" y="176" class="section">INTEGRATIONS</text>
+  <g filter="url(#shadow)"><rect x="1228" y="198" width="294" height="122" rx="16" class="box"/><text x="1255" y="238" class="name">LLM providers</text><text x="1255" y="265" class="meta">Structured generation APIs</text><text x="1255" y="297" class="pill">Automatic fallback chain</text></g>
+  <g filter="url(#shadow)"><rect x="1228" y="358" width="294" height="122" rx="16" class="box"/><text x="1255" y="398" class="name">Email + WhatsApp</text><text x="1255" y="425" class="meta">SendGrid · SES · Twilio</text><text x="1255" y="457" class="pill">Signed replay-safe webhooks</text></g>
+  <g filter="url(#shadow)"><rect x="1228" y="518" width="294" height="122" rx="16" class="box"/><text x="1255" y="558" class="name">n8n + CRM</text><text x="1255" y="585" class="meta">Connector choreography</text><text x="1255" y="617" class="pill">Canonical policy stays in API</text></g>
+
+  <path d="M338 406H420" class="line"/><path d="M740 259H835" class="line"/><path d="M740 419H835" class="line"/><path d="M740 579H835" class="line"/><path d="M1135 259H1228" class="line"/><path d="M1135 419H1228" class="line"/><path d="M1135 579H1228" class="line"/><path d="M580 320V358" class="line"/><path d="M580 480V518" class="line"/>
+
+  <rect x="78" y="716" width="1444" height="112" rx="18" fill="#0b1422" stroke="#253449"/>
+  <text x="106" y="751" class="section">SECURITY AND OBSERVABILITY ACROSS EVERY BOUNDARY</text>
+  <g transform="translate(106 778)"><circle cx="8" cy="8" r="8" fill="#10b981" opacity=".25"/><circle cx="8" cy="8" r="3" fill="#34d399"/><text x="25" y="13" class="small">Tenant-scoped JWT + RBAC</text></g>
+  <g transform="translate(386 778)"><circle cx="8" cy="8" r="8" fill="#3b82f6" opacity=".25"/><circle cx="8" cy="8" r="3" fill="#60a5fa"/><text x="25" y="13" class="small">Human approval gates</text></g>
+  <g transform="translate(646 778)"><circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity=".25"/><circle cx="8" cy="8" r="3" fill="#a78bfa"/><text x="25" y="13" class="small">Immutable event history</text></g>
+  <g transform="translate(928 778)"><circle cx="8" cy="8" r="8" fill="#f59e0b" opacity=".25"/><circle cx="8" cy="8" r="3" fill="#fbbf24"/><text x="25" y="13" class="small">Token + cost telemetry</text></g>
+  <g transform="translate(1204 778)"><circle cx="8" cy="8" r="8" fill="#06b6d4" opacity=".25"/><circle cx="8" cy="8" r="3" fill="#22d3ee"/><text x="25" y="13" class="small">Request IDs + metrics</text></g>
+  <text x="80" y="868" class="meta">OrbitOps · github.com/Ubaith444</text><text x="1520" y="868" text-anchor="end" class="meta">Portfolio architecture · 2026</text>
+</svg>
