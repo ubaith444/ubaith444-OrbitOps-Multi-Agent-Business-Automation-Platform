@@ -34,6 +34,10 @@ The platform combines agent orchestration with the controls a real business need
 
 ![OrbitOps product tour](docs/assets/demos/product-tour.gif)
 
+### Full demo video
+
+[Watch the 4-minute OrbitOps demo](docs/assets/demos/orbitops-demo.webm) covering login, lead creation, agent workflow execution, approval, report generation, audit logging, communication timeline, and agent monitoring.
+
 ### What makes this more than an AI demo
 
 - **Human control:** outbound drafts pause at an idempotent approval gate.
